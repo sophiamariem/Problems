@@ -1,7 +1,7 @@
 public class KthLargest {
 
     public int findKthLargest(int[] input, int k) {
-        if (k < 1 || input == null) {
+        if (input == null || k < 1 || k > input.length) {
             return 0;
         }
 
