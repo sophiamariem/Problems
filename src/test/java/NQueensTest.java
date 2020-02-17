@@ -1,8 +1,8 @@
-import org.junit.Test;
+import static org.junit.Assert.assertArrayEquals;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertArrayEquals;
+import org.junit.Test;
 
 public class NQueensTest {
 
