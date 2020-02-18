@@ -32,7 +32,7 @@ public class KthLargest {
         } else if (k < left) {
             return getKth(k, input, start, left-1);
         } else {
-            return getKth(k, input, left, end);
+            return getKth(k, input, left + 1, end);
         }
     }
 
