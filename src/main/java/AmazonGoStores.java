@@ -10,7 +10,8 @@ public class AmazonGoStores {
         }
 
         for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < columns; c++) {
+            int c = 0;
+            while (c < columns) {
                 if (r >= rows) {
                     return stores;
                 }
@@ -18,7 +19,10 @@ public class AmazonGoStores {
                     if (r == rows - 1 || (r + 1 < rows && grid.get(r + 1).get(c) != 1)) {
                         stores++;
                     }
+                    c = 0;
                     r++;
+                } else {
+                    c++;
                 }
             }
 
