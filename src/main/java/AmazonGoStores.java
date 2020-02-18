@@ -10,23 +10,30 @@ public class AmazonGoStores {
         }
 
         for (int r = 0; r < rows; r++) {
-            int c = 0;
-            while (c < columns) {
-                if (r >= rows) {
-                    return stores;
-                }
-                if ((grid.get(r).get(c) == 1)) {
-                    if (r == rows - 1 || (r + 1 < rows && grid.get(r + 1).get(c) != 1)) {
-                        stores++;
-                    }
-                    c = 0;
-                    r++;
-                } else {
-                    c++;
+            for (int c = 0; c < columns; c++) {
+                if (grid.get(r).get(c) == 1) {
+                    onlyOnePerCluster(grid, r, c);
+                    stores++;
                 }
             }
-
         }
+
         return stores;
+    }
+
+    private void onlyOnePerCluster(List<List<Integer>> grid, int r, int c) {
+        if (!isWithinBounds(grid, r, c) || grid.get(r).get(c) != 1) {
+            return;
+        }
+
+        grid.get(r).set(c, 0);
+        onlyOnePerCluster(grid, r + 1, c);
+        onlyOnePerCluster(grid, r - 1, c);
+        onlyOnePerCluster(grid, r, c + 1);
+        onlyOnePerCluster(grid, r, c - 1);
+    }
+
+    private boolean isWithinBounds(List<List<Integer>> grid, int r, int c) {
+        return r >= 0 && r < grid.size() && c >= 0 && c < grid.get(r).size();
     }
 }

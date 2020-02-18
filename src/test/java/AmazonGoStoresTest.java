@@ -79,6 +79,14 @@ public class AmazonGoStoresTest {
     }
 
     @Test
+    public void testSeven() {
+        List<List<Integer>> grid = new ArrayList<>();
+        grid.add(Arrays.asList(1, 0, 1, 1, 0, 1, 1));
+
+        assertEquals(3, amazonGoStores.numberAmazonGoStores(1, 7, grid));
+    }
+
+    @Test
     public void testInvalidColumns() {
         List<List<Integer>> grid = new ArrayList<>();
         grid.add(Arrays.asList(1, 1, 0, 0));

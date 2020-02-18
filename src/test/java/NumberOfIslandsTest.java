@@ -24,4 +24,10 @@ public class NumberOfIslandsTest {
         assertEquals(3, numIslands.numIslands(t));
     }
 
+    @Test
+    public void testFour() {
+        char[][] t = new char[][]{{'1', '0', '1', '1', '0', '1', '1'}};
+        assertEquals(3, numIslands.numIslands(t));
+    }
+
 }

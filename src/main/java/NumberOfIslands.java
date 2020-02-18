@@ -3,33 +3,35 @@ public class NumberOfIslands {
     public int numIslands(char[][] grid) {
         int islands = 0;
 
-        if (grid == null) {
+        if (grid == null || grid.length == 0 || grid[0].length == 0) {
             return islands;
         }
 
-        int rows = grid.length;
-        int columns = grid[0].length;
-
-        for (int r = 0; r < rows; r++) {
-            int c = 0;
-            while (c < columns) {
-                if (r >= rows) {
-                    return islands;
-                }
-
+        for (int r = 0; r < grid.length; r++) {
+            for (int c = 0; c < grid[r].length; c++) {
                 if (grid[r][c] == '1') {
-                    if (r == rows - 1 || (r + 1 < rows && grid[r + 1][c] != '1')) {
-                        islands++;
-                    }
-                    c = 0;
-                    r++;
-                } else {
-                    c++;
+                    setOnlyOneForEachCluster(grid, r, c);
+                    islands++;
                 }
             }
-
         }
         return islands;
+    }
+
+    private void setOnlyOneForEachCluster(char[][] grid, int r, int c) {
+        if (!isWithinBounds(grid, r, c) || grid[r][c] != '1') {
+            return;
+        }
+
+        grid[r][c] = '0';
+        setOnlyOneForEachCluster(grid, r + 1, c);
+        setOnlyOneForEachCluster(grid, r - 1, c);
+        setOnlyOneForEachCluster(grid, r, c + 1);
+        setOnlyOneForEachCluster(grid, r, c - 1);
+    }
+
+    private boolean isWithinBounds(char[][] grid, int r, int c) {
+        return r >= 0 && r < grid.length && c >= 0 && c < grid[r].length;
     }
 
 }
