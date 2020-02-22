@@ -17,7 +17,7 @@ public class TopNBuzzwords {
     public List<String> topToys(int numToys, int topToys, String[] toys, int numQuotes, String[] quotes) {
         if (quotes == null || quotes.length == 0 || toys == null || toys.length == 0 || topToys == 0
                 || numQuotes > quotes.length || numToys > numToys) {
-            return new ArrayList<>();
+            return Collections.emptyList();
         }
 
         Set<String> toySet = new HashSet<>();
@@ -36,7 +36,7 @@ public class TopNBuzzwords {
 
         PriorityQueue<String> queue = new PriorityQueue<>((a, b) -> {
             int result = mappedWithTotalCount.get(b).count - mappedWithTotalCount.get(a).count;
-            return result == 0 ? quoteCount(a, b) : result;
+            return result == 0 ? quoteCountAndLexicographicalCheck(a, b) : result;
         });
 
         for (String word : mappedWithTotalCount.keySet()) {
@@ -53,7 +53,7 @@ public class TopNBuzzwords {
         mappedWithTotalCount.put(word, wC);
     }
 
-    private int quoteCount(String a, String b) {
+    private int quoteCountAndLexicographicalCheck(String a, String b) {
         int quoteSize = mappedWithTotalCount.get(b).quoteIds.size() - mappedWithTotalCount.get(a).quoteIds.size();
         return quoteSize == 0 ? -(b.compareTo(a)) : quoteSize;
     }
