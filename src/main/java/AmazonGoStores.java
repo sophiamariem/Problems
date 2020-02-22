@@ -1,5 +1,6 @@
 import java.util.List;
 
+// Number Of Islands
 public class AmazonGoStores {
 
     public int numberAmazonGoStores(int rows, int columns, List<List<Integer>> grid) {
