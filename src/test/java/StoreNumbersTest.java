@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class AmazonGoStoresTest {
+public class StoreNumbersTest {
 
-    private AmazonGoStores amazonGoStores = new AmazonGoStores();
+    private StoreNumbers storeNumbers = new StoreNumbers();
 
     @Test
     public void testOne() {
@@ -19,7 +19,7 @@ public class AmazonGoStoresTest {
         grid.add(Arrays.asList(1, 0, 1, 1));
         grid.add(Arrays.asList(1, 1, 1, 1));
 
-        assertEquals(3, amazonGoStores.numberAmazonGoStores(5, 4, grid));
+        assertEquals(3, storeNumbers.numberOfStores(5, 4, grid));
     }
 
     @Test
@@ -29,7 +29,7 @@ public class AmazonGoStoresTest {
         grid.add(Arrays.asList(0, 0, 0, 0));
         grid.add(Arrays.asList(0, 0, 1, 1));
         grid.add(Arrays.asList(0, 0, 0, 0));
-        assertEquals(2, amazonGoStores.numberAmazonGoStores(4, 4, grid));
+        assertEquals(2, storeNumbers.numberOfStores(4, 4, grid));
     }
 
     @Test
@@ -42,7 +42,7 @@ public class AmazonGoStoresTest {
         grid.add(Arrays.asList(0, 0, 0, 0, 1, 0, 0));
         grid.add(Arrays.asList(0, 0, 0, 0, 0, 1, 0));
         grid.add(Arrays.asList(0, 0, 0, 0, 0, 0, 1));
-        assertEquals(7, amazonGoStores.numberAmazonGoStores(7, 7, grid));
+        assertEquals(7, storeNumbers.numberOfStores(7, 7, grid));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class AmazonGoStoresTest {
         grid.add(Arrays.asList(1, 1, 1, 1));
         grid.add(Arrays.asList(1, 1, 1, 1));
 
-        assertEquals(3, amazonGoStores.numberAmazonGoStores(6, 4, grid));
+        assertEquals(3, storeNumbers.numberOfStores(6, 4, grid));
     }
 
     @Test
@@ -63,7 +63,7 @@ public class AmazonGoStoresTest {
         List<List<Integer>> grid = new ArrayList<>();
         grid.add(Arrays.asList(1, 1, 0, 0));
 
-        assertEquals(1, amazonGoStores.numberAmazonGoStores(1, 4, grid));
+        assertEquals(1, storeNumbers.numberOfStores(1, 4, grid));
     }
 
     @Test
@@ -75,7 +75,7 @@ public class AmazonGoStoresTest {
         grid.add(Arrays.asList(0, 0, 0, 0));
         grid.add(Arrays.asList(0, 0, 1, 0));
 
-        assertEquals(4, amazonGoStores.numberAmazonGoStores(5, 4, grid));
+        assertEquals(4, storeNumbers.numberOfStores(5, 4, grid));
     }
 
     @Test
@@ -83,7 +83,7 @@ public class AmazonGoStoresTest {
         List<List<Integer>> grid = new ArrayList<>();
         grid.add(Arrays.asList(1, 0, 1, 1, 0, 1, 1));
 
-        assertEquals(3, amazonGoStores.numberAmazonGoStores(1, 7, grid));
+        assertEquals(3, storeNumbers.numberOfStores(1, 7, grid));
     }
 
     @Test
@@ -91,8 +91,8 @@ public class AmazonGoStoresTest {
         List<List<Integer>> grid = new ArrayList<>();
         grid.add(Arrays.asList(1, 1, 0, 0));
 
-        assertEquals(0, amazonGoStores.numberAmazonGoStores(1, 9, grid));
-        assertEquals(0, amazonGoStores.numberAmazonGoStores(1, 2, grid));
+        assertEquals(0, storeNumbers.numberOfStores(1, 9, grid));
+        assertEquals(0, storeNumbers.numberOfStores(1, 2, grid));
     }
 
     @Test
@@ -101,8 +101,8 @@ public class AmazonGoStoresTest {
         grid.add(Arrays.asList(1, 1, 0, 0));
         grid.add(Arrays.asList(1, 1, 0, 0));
 
-        assertEquals(0, amazonGoStores.numberAmazonGoStores(5, 4, grid));
-        assertEquals(0, amazonGoStores.numberAmazonGoStores(1, 4, grid));
+        assertEquals(0, storeNumbers.numberOfStores(5, 4, grid));
+        assertEquals(0, storeNumbers.numberOfStores(1, 4, grid));
     }
 
     @Test
@@ -111,14 +111,14 @@ public class AmazonGoStoresTest {
         grid.add(Arrays.asList(1, 1, 0, 0));
         grid.add(Arrays.asList(1, 1, 0, 0));
 
-        assertEquals(0, amazonGoStores.numberAmazonGoStores(0, 4, grid));
-        assertEquals(0, amazonGoStores.numberAmazonGoStores(1, 0, grid));
-        assertEquals(0, amazonGoStores.numberAmazonGoStores(0, 0, grid));
+        assertEquals(0, storeNumbers.numberOfStores(0, 4, grid));
+        assertEquals(0, storeNumbers.numberOfStores(1, 0, grid));
+        assertEquals(0, storeNumbers.numberOfStores(0, 0, grid));
     }
 
     @Test
     public void testNullGrid() {
-        assertEquals(0, amazonGoStores.numberAmazonGoStores(2, 4, null));
+        assertEquals(0, storeNumbers.numberOfStores(2, 4, null));
     }
 
 }

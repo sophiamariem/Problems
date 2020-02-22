@@ -1,9 +1,9 @@
 import java.util.List;
 
 // Number Of Islands
-public class AmazonGoStores {
+public class StoreNumbers {
 
-    public int numberAmazonGoStores(int rows, int columns, List<List<Integer>> grid) {
+    public int numberOfStores(int rows, int columns, List<List<Integer>> grid) {
         int stores = 0;
 
         if (rows == 0 || columns == 0 || grid == null || rows != grid.size() || columns != grid.get(0).size()) {
