@@ -7,9 +7,9 @@
 //        Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 public class ConwaysGameOfLife {
 
-    public void gameOfLife(int[][] board) {
+    public int[][] gameOfLife(int[][] board) {
         if (board == null || board.length == 0) {
-            return;
+            return new int[][]{};
         }
 
         int rowLength = board.length;
@@ -17,8 +17,8 @@ public class ConwaysGameOfLife {
 
         int newBoard[][] = new int[rowLength][colLength];
 
-        for (int row = 1; row < rowLength - 1; row++) {
-            for (int col = 1; col < colLength - 1; col++) {
+        for (int row = 0; row < rowLength; row++) {
+            for (int col = 0; col < colLength; col++) {
                 int aliveNeighbors = countAliveNeighbors(board, row, col);
 
                 if (aliveNeighbors < 2 || aliveNeighbors > 3) {
@@ -37,13 +37,17 @@ public class ConwaysGameOfLife {
             }
             System.out.println();
         }
+
+        return newBoard;
     }
 
     private int countAliveNeighbors(int[][] board, int row, int col) {
         int lives = 0;
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
-                lives += board[row + i][col + j];
+                if (row + i >= 0 && col + j >= 0 && row + i < board.length && col + j < board[0].length) {
+                    lives += board[row + i][col + j];
+                }
             }
         }
         lives -= board[row][col];
