@@ -9,8 +9,9 @@ public class MatchingBracketsTest {
         MatchingBrackets matching = new MatchingBrackets();
         assertEquals(MatchingBrackets.BALANCED, matching.matchBrackets("([{}])"));
         assertEquals(MatchingBrackets.UNBALANCED, matching.matchBrackets("({[}])"));
-        assertEquals(MatchingBrackets.INVALID, matching.matchBrackets(""));
-
+        assertEquals(MatchingBrackets.BALANCED, matching.matchBrackets(""));
         assertEquals(MatchingBrackets.BALANCED, matching.matchBrackets("([{([[{({{}})}]])}])"));
+        assertEquals(MatchingBrackets.UNBALANCED, matching.matchBrackets("(]"));
+        assertEquals(MatchingBrackets.UNBALANCED, matching.matchBrackets("["));
     }
 }

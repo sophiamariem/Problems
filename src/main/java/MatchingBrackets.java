@@ -16,15 +16,19 @@ public class MatchingBrackets {
     public String matchBrackets(String input) {
         Stack<Character> stack = new Stack();
 
-        if (input == null || input.isEmpty()) {
+        if (input == null) {
             return INVALID;
+        }
+
+        if (input.isEmpty()) {
+            return BALANCED;
         }
         char[] charArray = input.toCharArray();
         return Boolean.TRUE.equals(checkMatching(stack, charArray)) ? BALANCED : UNBALANCED;
     }
 
     private boolean checkMatching(Stack<Character> stack, char[] charArray) {
-        for (int i = 0; i < charArray.length - 1; i++) {
+        for (int i = 0; i < charArray.length; i++) {
             if (charArray[i] == BRACKET_OPEN || charArray[i] == SQUARE_OPEN || charArray[i] == CURLY_OPEN) {
                 stack.push(charArray[i]);
             } else if (charArray[i] == BRACKET_CLOSE && !checkCorresponding(stack, BRACKET_OPEN)) {
@@ -35,7 +39,11 @@ public class MatchingBrackets {
                 return false;
             }
         }
-        return true;
+
+        if (stack.isEmpty()) {
+            return true;
+        }
+        return false;
     }
 
     private boolean checkCorresponding(Stack<Character> stack, char c) {
