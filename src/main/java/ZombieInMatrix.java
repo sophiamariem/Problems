@@ -27,10 +27,10 @@ public class ZombieInMatrix {
             for (int i = 0; i < sizeofLastQueue; i++) {
                 Coordinate currentNode = queue.remove();
                 for (int j = 0; j < 4; j++) {
-                    int neighborX = currentNode.x + Y_DIRECTION[j];
-                    int neighborY = currentNode.y + X_DIRECTION[j];
+                    int neighborX = currentNode.x + X_DIRECTION[j];
+                    int neighborY = currentNode.y + Y_DIRECTION[j];
 
-                    if (outOfBoundary(grid, neighborX, neighborY)) {
+                    if (outOfBounds(grid, neighborX, neighborY)) {
                         continue;
                     }
 
@@ -64,7 +64,7 @@ public class ZombieInMatrix {
         return peopleCount;
     }
 
-    private boolean outOfBoundary(int[][] grid, int i, int j) {
+    private boolean outOfBounds(int[][] grid, int i, int j) {
         return j < 0 || j >= grid[0].length || i < 0 || i >= grid.length;
     }
 
