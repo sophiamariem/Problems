@@ -2,10 +2,10 @@ public class MostFrequentChar {
 
     public char mostFrequentChar(String s) {
         if (s == null || s.length() == 0) {
-            throw new IllegalArgumentException("input is null");
+            throw new IllegalArgumentException("input is null or empty");
         }
 
-        int[] chars = new int[Character.MAX_VALUE + 1];
+        int[] chars = new int[Character.MAX_VALUE];
 
         for (char c : s.toCharArray()) {
             chars[c] = chars[c] + 1;
