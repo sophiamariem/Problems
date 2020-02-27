@@ -4,7 +4,7 @@ public class DiagonalOrder {
         if (matrix.length == 0 || matrix[0].length == 0) {
             return new int[]{};
         }
-        
+
         int m = matrix.length;
         int n = matrix[0].length;
 
@@ -30,11 +30,11 @@ public class DiagonalOrder {
                 row += 2;
                 d = changeDirection(d);
             }
-            if (topOutOfBounds(row))  {
+            if (topOutOfBounds(row)) {
                 row = 0;
                 d = changeDirection(d);
             }
-            if (leftOutOfBounds(col))  {
+            if (leftOutOfBounds(col)) {
                 col = 0;
                 d = changeDirection(d);
             }
