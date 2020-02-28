@@ -16,7 +16,7 @@ public class TopKFrequent {
 
         PriorityQueue<String> queue = new PriorityQueue<>((a, b) -> {
             int result = mappedWithCount.get(b) - mappedWithCount.get(a);
-            return (result == 0) ? -(b.compareTo(a)) : result;
+            return (result == 0) ? (a.compareTo(b)) : result;
         });
 
         for (String word : mappedWithCount.keySet()) {

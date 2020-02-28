@@ -55,7 +55,7 @@ public class TopNBuzzwords {
 
     private int quoteCountAndLexicographicalCheck(String a, String b) {
         int quoteSize = mappedWithTotalCount.get(b).quoteIds.size() - mappedWithTotalCount.get(a).quoteIds.size();
-        return quoteSize == 0 ? -(b.compareTo(a)) : quoteSize;
+        return quoteSize == 0 ? (a.compareTo(b)) : quoteSize;
     }
 
     private List<String> listWithTopToys(int topToys, PriorityQueue<String> queue) {
