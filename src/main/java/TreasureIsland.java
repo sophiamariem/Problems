@@ -25,7 +25,6 @@ public class TreasureIsland {
             int queueSize = queue.size();
             for (int i = 0; i < queueSize; i++) {
                 Coordinate coord = queue.poll();
-                System.out.println(count);
 
                 for (int j = 0; j < 4; j++) {
                     int neighborsX = coord.x + X_DIRECTION[j];

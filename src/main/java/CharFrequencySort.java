@@ -35,4 +35,25 @@ public class CharFrequencySort {
         }
         return sb.toString();
     }
+
+    public String frequencySortFaster(String s) {
+        int[] hash = new int[256];
+        for (char c: s.toCharArray()) {
+            hash[c]++;
+        }
+
+        PriorityQueue<int[]> q = new PriorityQueue<>((n1, n2) -> n2[1] - n1[1]);
+        for (int i=0; i < 256; i++) {
+            q.add(new int[] {i, hash[i]});
+        }
+
+        StringBuilder sb = new StringBuilder();
+        while (!q.isEmpty()) {
+            int[] a = q.poll();
+            for (int j=0; j < a[1]; j++) {
+                sb.append((char)a[0]);
+            }
+        }
+        return sb.toString();
+    }
 }

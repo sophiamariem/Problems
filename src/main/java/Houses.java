@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// Prison Cells after N days
 public class Houses {
 
     public List<Integer> cellCompete(int[] states, int days) {

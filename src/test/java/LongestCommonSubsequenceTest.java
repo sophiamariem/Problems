@@ -23,4 +23,16 @@ public class LongestCommonSubsequenceTest {
         String text1 = "abccde", text2 = "acce";
         assertEquals(4, LCS.longestCommonSubsequence(text1, text2));
     }
+
+    @Test
+    public void testWithDuplicateCommonSubsequenceNotExact() {
+        String text1 = "abccde", text2 = "acice";
+        assertEquals(4, LCS.longestCommonSubsequence(text1, text2));
+    }
+
+    @Test
+    public void testWithDuplicateCommonSubsequenceUnordered() {
+        String text1 = "abccde", text2 = "caice";
+        assertEquals(4, LCS.longestCommonSubsequence(text1, text2));
+    }
 }
