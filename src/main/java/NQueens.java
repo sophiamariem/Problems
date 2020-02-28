@@ -32,8 +32,8 @@ public class NQueens {
     }
 
     private boolean onSameDiagonal(int c, int col, int r, int row) {
-        int dist = Math.abs(c - col);
-        int rows = row - r;
-        return dist == rows;
+        int colDist = Math.abs(c - col);
+        int rowDist = row - r;
+        return colDist == rowDist;
     }
 }
