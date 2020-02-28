@@ -9,7 +9,7 @@ public class GroupAnagrams {
         for (int i = 0; i < strs.length; i++) {
             char[] strArr = strs[i].toCharArray();
             Arrays.sort(strArr);
-            String key = Arrays.toString(strArr);
+            String key = new String(strArr);
             if (map.containsKey(key)) {
                 map.get(key).add(strs[i]);
             } else {
