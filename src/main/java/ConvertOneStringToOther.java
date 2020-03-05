@@ -7,11 +7,7 @@ public class ConvertOneStringToOther {
         char[] s1ChArray = s1.toCharArray();
         char[] s2ChArray = s2.toCharArray();
 
-        for (int i = 0; i < s1.length(); i+=2) {
-            swap(s1ChArray, s2ChArray, i);
-        }
-
-        for (int i = 1; i < s1.length(); i+=2) {
+        for (int i = 0; i < s1.length(); i++) {
             swap(s1ChArray, s2ChArray, i);
         }
 
