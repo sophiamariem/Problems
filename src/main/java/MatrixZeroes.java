@@ -81,4 +81,35 @@ public class MatrixZeroes {
 
         return matrix;
     }
+
+    public int[][] setZeroesForRowColumn(int[][] matrix) {
+        boolean[] row = new boolean[matrix[0].length];
+        boolean[] col = new boolean[matrix.length];
+
+        for (int i = 0; i < col.length; i++) {
+            for (int j = 0; j < row.length; j++) {
+                if (matrix[i][j] == 0) {
+                    row[j] = true;
+                    col[i] = true;
+                }
+            }
+        }
+
+        for (int i = 0; i < row.length; i++) {
+            if (row[i]) {
+                for (int j = 0; j < col.length; j++) {
+                    matrix[j][i] = 0;
+                }
+            }
+        }
+
+        for (int i = 0; i < col.length; i++) {
+            if (col[i]) {
+                for (int j = 0; j < row.length; j++) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+        return matrix;
+    }
 }
