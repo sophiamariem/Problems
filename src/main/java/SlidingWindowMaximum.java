@@ -12,7 +12,7 @@ public class SlidingWindowMaximum {
         int idx = 0;
         Deque<Integer> deque = new ArrayDeque();
         for (int i = 0; i < nums.length; i++) {
-            while (!deque.isEmpty() && deque.peek() < i - k + 1) {
+            while (!deque.isEmpty() && windowNotCorrect(k, deque, i)) {
                 deque.poll();
             }
 
@@ -27,5 +27,9 @@ public class SlidingWindowMaximum {
             }
         }
         return result;
+    }
+
+    private boolean windowNotCorrect(int k, Deque<Integer> deque, int i) {
+        return deque.peek() < i - k + 1;
     }
 }
