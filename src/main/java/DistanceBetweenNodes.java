@@ -11,6 +11,21 @@ public class DistanceBetweenNodes {
         return bstDistance(lowestCommonAncestor, node1) + bstDistance(lowestCommonAncestor, node2);
     }
 
+    private TreeNode lowestCommonAncestor(TreeNode root, int node1, int node2) {
+        while (true) {
+            if (root.val > node1 && root.val > node2) {
+                root = root.left;
+            } else if (root.val < node1 && root.val < node2) {
+                root = root.right;
+            } else {
+                if (root.left == null) {
+                    throw new IllegalArgumentException("Input not a BST");
+                }
+                return root;
+            }
+        }
+    }
+
     private int bstDistance(TreeNode src, int dest) {
         if (src.val == dest) {
             return 0;
@@ -24,25 +39,13 @@ public class DistanceBetweenNodes {
         return bstDistance(node, dest) + 1;
     }
 
-    private TreeNode lowestCommonAncestor(TreeNode root, int node1, int node2) {
-        while (true) {
-            if (root.val > node1 && root.val > node2) {
-                root = root.left;
-            } else if (root.val < node1 && root.val < node2) {
-                root = root.right;
-            } else {
-                return root;
-            }
-        }
-    }
-
     public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
 
         TreeNode(int x) {
-            val = x;
+            this.val = x;
         }
     }
 }
