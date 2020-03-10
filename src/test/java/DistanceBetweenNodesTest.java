@@ -23,8 +23,8 @@ public class DistanceBetweenNodesTest {
         assertEquals(2, distanceBetweenNodes.getDistanceBetween(root, 1, 4));
         assertEquals(5, distanceBetweenNodes.getDistanceBetween(root, 1, 8));
         assertEquals(2, distanceBetweenNodes.getDistanceBetween(root, 1, 3));
+        assertEquals(1, distanceBetweenNodes.getDistanceBetween(root, 7, 8));
         assertThrows(IllegalArgumentException.class, () ->
                 distanceBetweenNodes.getDistanceBetween(root, 10, 9));
-
     }
 }
