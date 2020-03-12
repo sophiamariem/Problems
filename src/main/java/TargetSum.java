@@ -18,29 +18,29 @@ public class TargetSum {
 
     public int findTargetSumWays(int[] nums, int S) {
         memo = new HashMap<>();
-        return findTargetSumWaysMemo(nums, S, 0, 0);
+        return findTargetSumWaysMemo(nums, 0, S, 0);
     }
 
-    private int findTargetSumWaysMemo(int[] nums, int S, int idx, int sum) {
-        String curSerial= serialize(idx, sum);
+    private int findTargetSumWaysMemo(int[] nums, int sum, int target, int idx) {
+        String curSerial = serialize(idx, sum);
         if (memo.containsKey(curSerial)) {
             return memo.get(curSerial);
         }
 
         if (nums.length == idx) {
-            return sum == S ? 1 : 0;
+            return sum == target ? 1 : 0;
         }
 
-        sum = findTargetSumWaysMemo(nums, S, idx + 1, sum + nums[idx]) +
-                findTargetSumWaysMemo(nums, S, idx + 1, sum - nums[idx]);
+        sum = findTargetSumWaysMemo(nums, sum + nums[idx], target, idx + 1) +
+                findTargetSumWaysMemo(nums, sum - nums[idx], target, idx + 1);
 
         memo.put(curSerial, sum);
 
         return sum;
     }
 
-    private static String serialize(int curIndex, int targetSum) {
-        return curIndex + "," + targetSum;
+    private static String serialize(int curIndex, int sum) {
+        return curIndex + "," + sum;
     }
 
     public int findTargetSumWaysSubset(int[] nums, int target) {
@@ -48,7 +48,7 @@ public class TargetSum {
         for (int num : nums) {
             sum += num;
         }
-        if (sum < target || ((sum + target) & 1) == 1){
+        if (sum < target || ((sum + target) & 1) == 1) {
             return 0;
         }
         return subsetSum(nums, (sum + target) >>> 1);
