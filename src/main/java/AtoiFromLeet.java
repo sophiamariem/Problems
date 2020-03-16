@@ -23,12 +23,14 @@ public class AtoiFromLeet {
         for (int i = skipFirst ? 1 : 0; i < str.length(); i++) {
             if (isValid(str, i)) {
                 result = (result * 10) + (str.charAt(i) - '0');
-            } else if (result == 0) {
-                return 0;
             } else {
-                int resultint = (int) result;
-                resultint = isNegative ? -resultint : resultint;
-                return resultint;
+                result = isNegative ? -result : result;
+                if (result > Integer.MAX_VALUE) {
+                    return Integer.MAX_VALUE;
+                } else if (result < Integer.MIN_VALUE) {
+                    return Integer.MIN_VALUE;
+                }
+                return (int) result;
             }
         }
 
@@ -36,13 +38,6 @@ public class AtoiFromLeet {
             result = -result;
         }
 
-        if (result > Integer.MAX_VALUE) {
-            return Integer.MAX_VALUE;
-        }
-
-        if (result < Integer.MIN_VALUE) {
-            return Integer.MIN_VALUE;
-        }
 
         return (int) result;
     }
