@@ -1,6 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
-import java.util.*;
 
 // Tarjan algorithm -
 // add nodes to the stack when first visited
