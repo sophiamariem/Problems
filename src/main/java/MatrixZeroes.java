@@ -1,35 +1,35 @@
 public class MatrixZeroes {
 
     public int[][] setZeroesDfs(int[][] matrix) {
-        int cols = matrix.length;
-        int rows = matrix[0].length;
-        boolean[][] visited = new boolean[cols][rows];
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        boolean[][] visited = new boolean[rows][cols];
 
-        for (int i = 0; i < cols; i++) {
-            for (int j = 0; j < rows; j++) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 if (matrix[i][j] == 0 && !visited[i][j]) {
-                    dfs(matrix, visited, i, j, cols, rows);
+                    dfs(matrix, visited, i, j, rows, cols);
                 }
             }
         }
         return matrix;
     }
 
-    private void dfs(int[][] matrix, boolean[][] visited, int col, int row, int cols, int rows) {
-        visited[col][row] = true;
+    private void dfs(int[][] matrix, boolean[][] visited, int row, int col, int rows, int cols) {
+        visited[row][col] = true;
 
-        for (int i = 0; i < cols; i++) {
-            if (matrix[i][row] != 0) {
-                visited[i][row] = true;
+        for (int i = 0; i < rows; i++) {
+            if (matrix[i][col] != 0) {
+                visited[i][col] = true;
             }
-            matrix[i][row] = 0;
+            matrix[i][col] = 0;
         }
 
-        for (int j = 0; j < rows; j++) {
-            if (matrix[col][j] != 0) {
-                visited[col][j] = true;
+        for (int j = 0; j < cols; j++) {
+            if (matrix[row][j] != 0) {
+                visited[row][j] = true;
             }
-            matrix[col][j] = 0;
+            matrix[row][j] = 0;
         }
     }
 

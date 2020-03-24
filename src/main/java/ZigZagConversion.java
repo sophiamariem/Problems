@@ -8,7 +8,6 @@ public class ZigZagConversion {
             sb[i] = new StringBuilder();
         }
 
-
         int i = 0;
         while (i < length) {
             for (int j = 0; j < numRows && i < length; j++) {

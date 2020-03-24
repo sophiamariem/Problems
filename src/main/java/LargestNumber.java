@@ -17,7 +17,7 @@ public class LargestNumber {
             numsList.add(Integer.toString(nums[i]));
         }
 
-        Collections.sort(numsList, (a, b)-> {
+        Collections.sort(numsList, (a, b) -> {
             String s1 = a + b;
             String s2 = b + a;
             return s2.compareTo(s1);
