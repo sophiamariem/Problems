@@ -1,5 +1,7 @@
+// Best Time to Buy and Sell Stock
 public class StockPrices {
 
+    // 261 ms run
     public int getMaxProfit(int[] stockPrices) {
         if (stockPrices.length < 2) {
             throw new IllegalArgumentException("need at least 2");
@@ -16,6 +18,7 @@ public class StockPrices {
         return max;
     }
 
+    // 1 ms
     public int getMaxProfitGreedy(int[] stockPrices) {
         if (stockPrices.length < 2) {
             throw new IllegalArgumentException("need at least 2");
