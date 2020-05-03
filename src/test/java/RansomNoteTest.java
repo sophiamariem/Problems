@@ -13,4 +13,18 @@ public class RansomNoteTest {
         assertFalse(ransomNote.canConstruct("aa", "ab"));
         assertTrue(ransomNote.canConstruct("aa", "aab"));
     }
+
+    @Test
+    public void testLw() {
+        assertFalse(ransomNote.canConstructLw("a", "b"));
+        assertFalse(ransomNote.canConstructLw("aa", "ab"));
+        assertTrue(ransomNote.canConstructLw("aa", "aab"));
+    }
+
+    @Test
+    public void testLwFast() {
+        assertFalse(ransomNote.canConstructLwFast("a", "b"));
+        assertFalse(ransomNote.canConstructLwFast("aa", "ab"));
+        assertTrue(ransomNote.canConstructLwFast("aa", "aab"));
+    }
 }
