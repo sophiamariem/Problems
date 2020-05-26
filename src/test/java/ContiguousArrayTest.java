@@ -13,4 +13,13 @@ public class ContiguousArrayTest {
         assertEquals(4, contiguousArray.findMaxLength(new int[]{0, 1, 0, 1}));
         assertEquals(6, contiguousArray.findMaxLength(new int[]{0, 0, 1, 0, 0, 0, 1, 1}));
     }
+
+    @Test
+    public void testArray() {
+        assertEquals(2, contiguousArray.findMaxLengthArray(new int[]{0, 1}));
+        assertEquals(2, contiguousArray.findMaxLengthArray(new int[]{0, 1, 0}));
+        assertEquals(2, contiguousArray.findMaxLengthArray(new int[]{0, 1, 1}));
+        assertEquals(4, contiguousArray.findMaxLengthArray(new int[]{0, 1, 0, 1}));
+        assertEquals(6, contiguousArray.findMaxLengthArray(new int[]{0, 0, 1, 0, 0, 0, 1, 1}));
+    }
 }
