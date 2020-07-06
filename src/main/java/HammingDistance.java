@@ -13,5 +13,5 @@ public class HammingDistance {
             xor >>>= 1;
         }
         return count;
-    }
+    } 
 }
